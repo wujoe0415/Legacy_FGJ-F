@@ -102,7 +102,7 @@ public class PlayerStatus : MonoBehaviour
     }
     IEnumerator UpdateHP()
     {
-        float speed = 0.02f;
+        float speed = 0.0013f;
         
         for (float f = Mathf.Abs(HPHintSlider.value - CurrentHP); f>0;f-=speed)
         {

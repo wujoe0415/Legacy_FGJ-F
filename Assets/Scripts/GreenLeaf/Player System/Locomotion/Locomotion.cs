@@ -28,7 +28,7 @@ public class Locomotion : MonoBehaviour
 
     private void Jump()
     {
-        _rigidbody.AddForce(JumpForce * new Vector2(0,1f));
+        _rigidbody.AddForce(JumpForce * 50 * new Vector2(0,1f));
     }
     private void Move(bool isRight)
     {

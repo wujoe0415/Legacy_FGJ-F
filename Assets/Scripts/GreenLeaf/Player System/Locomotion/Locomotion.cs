@@ -18,17 +18,17 @@ public class Locomotion : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKey(KeyCode.W) && CheckGrounded())
+        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && CheckGrounded())
             Jump();
         else if(Input.GetKey(KeyCode.A))
-            Move(true);
-        else if(Input.GetKey(KeyCode.D))
             Move(false);
+        else if(Input.GetKey(KeyCode.D))
+            Move(true);
     }
 
     private void Jump()
     {
-        _rigidbody.AddForce(JumpForce * 200 * new Vector2(0,1f));
+        _rigidbody.AddForce(JumpForce * new Vector2(0,1f));
     }
     private void Move(bool isRight)
     {
@@ -37,7 +37,7 @@ public class Locomotion : MonoBehaviour
         transform.position += direction * Vector3.right * Speed * Time.deltaTime;
     }
     private bool CheckGrounded(){
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, Ground);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, Ground);
         if(hit.collider != null)
             return true;
         else 

@@ -435,7 +435,7 @@ Animator:
   m_GameObject: {fileID: 1073241220}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8833de08a6ae46648ab2e1fafc7e998e, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8141ce1502694b4e8a8e9c9cb12786e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -774,7 +774,7 @@ Animator:
   m_GameObject: {fileID: 1752453499}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf256e33fec567049aaf898eea4b63d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: c02e6f1dad1fc7a458cfebd85f1f70bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1073241220}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1811662967

@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Player
   - 
   - Ground
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: boss
     uniqueID: 3228390663
+    locked: 0
+  - name: hint
+    uniqueID: 821529901
     locked: 0

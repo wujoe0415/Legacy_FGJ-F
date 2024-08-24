@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    private static PlayerStatus Instance;
+    public static PlayerStatus Instance;
 
     [SerializeField]
     private Slider HealthPointSlider;
@@ -36,14 +36,14 @@ public class PlayerStatus : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            IncreaseHP(1f);
-        if (Input.GetKeyDown(KeyCode.J))
-            DecreaseHP(1f);
+        // if (Input.GetKeyDown(KeyCode.K))
+        //     IncreaseHP(1f);
+        // if (Input.GetKeyDown(KeyCode.J))
+        //     DecreaseHP(1f);
         
-        if (Input.GetKeyDown(KeyCode.N))
-            IncreaseMP(1);
         if (Input.GetKeyDown(KeyCode.M))
+            IncreaseMP(1);
+        if (Input.GetKeyDown(KeyCode.N))
             DecreaseMP(1);
     }
     public void IncreaseHP(float amount)
@@ -106,7 +106,6 @@ public class PlayerStatus : MonoBehaviour
         
         for (float f = Mathf.Abs(HPHintSlider.value - CurrentHP); f>0;f-=speed)
         {
-            Debug.Log(HPHintSlider.value);
             HPHintSlider.value = HPHintSlider.value - speed;
             yield return null;
         }

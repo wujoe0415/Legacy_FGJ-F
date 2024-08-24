@@ -10,11 +10,13 @@ public class Locomotion : MonoBehaviour
     [Range(0f, 10f)]
     public float JumpForce = 1f;
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _sprite;
     public LayerMask Ground;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _sprite = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -25,7 +27,7 @@ public class Locomotion : MonoBehaviour
         else if(Input.GetKey(KeyCode.D))
             Move(true);
     }
-
+    // TODO: Fix jump problem
     private void Jump()
     {
         _rigidbody.AddForce(JumpForce * 50 * new Vector2(0,1f));
@@ -33,7 +35,7 @@ public class Locomotion : MonoBehaviour
     private void Move(bool isRight)
     {
         int direction = isRight? 1:-1;
-        //flip character orientation
+        _sprite.flipY = !isRight; // Character faces right initially
         transform.position += direction * Vector3.right * Speed * Time.deltaTime;
     }
     private bool CheckGrounded(){

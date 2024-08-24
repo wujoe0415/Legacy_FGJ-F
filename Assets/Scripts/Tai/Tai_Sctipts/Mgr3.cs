@@ -9,10 +9,13 @@ public class Mgr3 : MonoBehaviour
 
     public Animator fade;
 
+    //測試結局
+    public static bool isLose;
     public static bool isWin;
     void Start()
     {
-        isWin = false;
+        isLose = false;
+        isLose = false;
     }
 
     
@@ -24,11 +27,20 @@ public class Mgr3 : MonoBehaviour
         }
         
         //ED1測試鍵
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            fade.SetTrigger("fade");
+            isLose = true;
+            Invoke("LoadED",2f);
+        }
+        
+        //ED2測試鍵
+        if (Input.GetKeyDown(KeyCode.O))
         {
             fade.SetTrigger("fade");
             isWin = true;
             Invoke("LoadED",2f);
+
         }
     }
 

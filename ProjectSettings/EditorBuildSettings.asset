@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scripts/Tai/Tai_Scenes/Tai_s2.unity
     guid: 38a354c32ace412418cfcfb140989177
+  - enabled: 1
+    path: Assets/Scripts/Tai/Tai_Scenes/Tai_s3.unity
+    guid: de9e7064f1ab1044bb583c25c734c794
   m_configObjects: {}

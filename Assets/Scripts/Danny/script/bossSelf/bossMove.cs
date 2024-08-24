@@ -5,6 +5,7 @@ using UnityEngine;
 public class bossMove : MonoBehaviour
 {
     [SerializeField]private List<GameObject> gameObjectList;
+    private int nowIndex;
 
     private void Start()
     {
@@ -24,7 +25,19 @@ public class bossMove : MonoBehaviour
     private void move()
     {
         int bossIndex = Random.Range(1, gameObjectList.Count);
-        GameObject go = gameObjectList[bossIndex];
-        StartCoroutine("movePos", go);
+        if(nowIndex != bossIndex)
+        {
+            GameObject go = gameObjectList[bossIndex];
+            StartCoroutine("movePos", go);
+        }
+        else
+        {
+            while(nowIndex != bossIndex)
+            {
+                bossIndex = Random.Range(1, gameObjectList.Count);
+            }
+            GameObject go = gameObjectList[bossIndex];
+            StartCoroutine("movePos", go);
+        }
     }
 }

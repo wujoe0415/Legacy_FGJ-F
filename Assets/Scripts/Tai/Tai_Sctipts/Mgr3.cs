@@ -8,9 +8,11 @@ public class Mgr3 : MonoBehaviour
     public GameObject teachPanel;
 
     public Animator fade;
+
+    public static bool isWin;
     void Start()
     {
-        
+        isWin = false;
     }
 
     
@@ -21,10 +23,11 @@ public class Mgr3 : MonoBehaviour
             teachPanel.SetActive(false);
         }
         
-        //ED測試鍵
+        //ED1測試鍵
         if (Input.GetKeyDown(KeyCode.Q))
         {
             fade.SetTrigger("fade");
+            isWin = true;
             Invoke("LoadED",2f);
         }
     }

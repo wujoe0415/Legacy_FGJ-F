@@ -12,10 +12,13 @@ public class Mgr3 : MonoBehaviour
     //測試結局
     public static bool isLose;
     public static bool isWin;
+    public static bool allDie;
+
     void Start()
     {
         isLose = false;
         isLose = false;
+        allDie = false;
     }
 
     
@@ -42,6 +45,16 @@ public class Mgr3 : MonoBehaviour
             Invoke("LoadED",2f);
 
         }
+        
+        //ED3測試鍵
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            fade.SetTrigger("fade");
+            allDie = true;
+            Invoke("LoadED",2f);
+
+        }
+        
     }
 
     void LoadED()

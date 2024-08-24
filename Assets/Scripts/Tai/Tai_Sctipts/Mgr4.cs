@@ -9,6 +9,7 @@ public class Mgr4 : MonoBehaviour
 
     public Animator fade;
 
+
     void Start()
     {
         others.SetActive(false);
@@ -22,19 +23,26 @@ public class Mgr4 : MonoBehaviour
         if (Mgr3.isLose == true)
         {
             others.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.X))
             {
                 fade.SetTrigger("fade");
-                Invoke("BackToBoss",2f);
+                Invoke("BackToBoss", 2f);
             }
         }
-        
+
         //勇者贏了
         if (Mgr3.isWin == true)
         {
             ed1.SetActive(true);
-            Invoke("BackToTitle",10f);
-            
+            Invoke("BackToTitle", 10f);
+        }
+
+        //模王贏了  勇者全掛了
+        if (Mgr3.allDie == true)
+        {
+            ed2.SetActive(true);
+            Invoke("BackToTitle", 10f);
         }
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1726885336621559237}
   - component: {fileID: 1033389440251771536}
   - component: {fileID: -1606160622713250810}
+  - component: {fileID: 7584684956399193020}
   m_Layer: 0
   m_Name: bossItem
   m_TagString: Untagged
@@ -172,3 +173,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossList: {fileID: 0}
+--- !u!114 &7584684956399193020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111022844811123232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad99ced0d6766540b7c9a73a3e9a571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackList:
+  - {fileID: 133589452901094894, guid: 9b20eb9e25485d149a7f8559e4d78759, type: 3}
+  - {fileID: 7669018167662932981, guid: 8316d9f2674b53d438c4f27855b6d59c, type: 3}
+  - {fileID: 3689820496651929195, guid: cb1715d08ea1b9d4ba130f453347cea9, type: 3}

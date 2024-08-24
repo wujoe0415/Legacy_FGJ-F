@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class bossAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] attackList;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        int attackItem = Random.Range(0, attackList.Length - 1);
+        GameObject obj = Instantiate(attackList[attackItem]);
+        obj.SetActive(true);
     }
 }

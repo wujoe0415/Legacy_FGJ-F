@@ -15,6 +15,7 @@ public class Energyball : BasicSkill
     }
     public override void Skill()
     {
+        // TODO: Spawn Ball
         Debug.Log("FireBall!");
     }
     public override void LevelUp()

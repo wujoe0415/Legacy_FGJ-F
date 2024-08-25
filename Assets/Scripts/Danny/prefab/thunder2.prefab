@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 2755740941293418477}
   - component: {fileID: 4747790471025462781}
   - component: {fileID: 1820007895848488787}
+  - component: {fileID: 8312201091439360492}
   m_Layer: 0
   m_Name: EG-lightning00 (1)
   m_TagString: Untagged
@@ -520,6 +521,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3690948, y: 4.3498836}
   m_EdgeRadius: 0
+--- !u!114 &8312201091439360492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308751305879974146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &7337292836388580015
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +546,7 @@ GameObject:
   - component: {fileID: 295113226277880084}
   - component: {fileID: 8924162283761656462}
   - component: {fileID: 6831350915576473370}
+  - component: {fileID: 6389096427894509876}
   m_Layer: 0
   m_Name: EG-lightning00 (2)
   m_TagString: Untagged
@@ -672,6 +687,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3690948, y: 4.117865}
   m_EdgeRadius: 0
+--- !u!114 &6389096427894509876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337292836388580015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &7578267301504217248
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +713,7 @@ GameObject:
   - component: {fileID: 5883488416937256004}
   - component: {fileID: 6201302014120512124}
   - component: {fileID: 2856401540979415151}
+  - component: {fileID: 4307099421203379155}
   m_Layer: 0
   m_Name: EG-lightning00
   m_TagString: Untagged
@@ -921,3 +950,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4307099421203379155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7578267301504217248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1

@@ -10,15 +10,14 @@ public class bossMove : MonoBehaviour
     private void Start()
     {
         GameObject go = gameObjectList[0];
-        StartCoroutine("movePos", go);
-        InvokeRepeating("move", 3, 3);
+        InvokeRepeating("move", 0, 5);
     }
 
 
     IEnumerator movePos(GameObject go)
     {
         go.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         go.GetComponent<bulletSet>().shotting = false;
         go.SetActive(false);
     }
@@ -33,12 +32,13 @@ public class bossMove : MonoBehaviour
         }
         else
         {
-            while(nowIndex != bossIndex)
+            while(nowIndex == bossIndex)
             {
                 bossIndex = Random.Range(1, gameObjectList.Count);
             }
             GameObject go = gameObjectList[bossIndex];
             StartCoroutine("movePos", go);
         }
+        nowIndex = bossIndex;
     }
 }

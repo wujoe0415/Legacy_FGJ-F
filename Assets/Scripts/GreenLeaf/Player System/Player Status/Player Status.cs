@@ -8,6 +8,8 @@ public class PlayerStatus : MonoBehaviour
     public static PlayerStatus Instance;
     public float CurrentHP = 10f;
     public int CurrentMP = 5;
+    public float DefensePoint = 0f;
+    public bool isInvincible = false;
     public Sprite ProfilePhoto;
 
     [Range(5f, 20f)]
@@ -44,6 +46,10 @@ public class PlayerStatus : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
             DecreaseMP(1);
     }
+    public void TakeDamage(float damage)
+    {
+        DecreaseHP(Mathf.Max(0f, damage - DefensePoint));
+    }
     public void IncreaseHP(float amount)
     {
         CurrentHP += amount;
@@ -52,12 +58,13 @@ public class PlayerStatus : MonoBehaviour
     }
     public void DecreaseHP(float amount)
     {
+        if(isInvincible)
+            return;
         CurrentHP -= amount;
         CurrentHP = Mathf.Clamp(CurrentHP, 0f, _maxHealthPoint);
         _playerUIManager.UpdateDisplayHP(CurrentHP, true);
         if (CurrentHP == 0f)
         {
-            // TODO: Lose Battle
             _playerUIManager.UpdateDisplayHP(CurrentHP);
             Object.FindObjectOfType<BattleFieldManager>().SwitchPlayer(gameObject);
             Destroy(gameObject);

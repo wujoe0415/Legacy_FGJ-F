@@ -29,11 +29,11 @@ public class Dash : BasicSkill
         
         for(int i = 0;i<InvincibleFrames;i++)
         {
-            // TODO: Invincible
+            PlayerStatus.Instance.isInvincible = true;
             Player.transform.position += faceDir * Distance/InvincibleFrames;
             yield return null;
         }
-        // TODO: RecoverInvincible
+            PlayerStatus.Instance.isInvincible = false;
     }
     public override void LevelUp()
     {

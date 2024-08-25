@@ -9,13 +9,13 @@ public class Energyball : BasicSkill
     public float ShootSpeed = 10f;
     public GameObject Ball;
     private Transform _enemy;
-    public Transform _ball;
+    public Transform _heldBall;
     public bool _readyShoot = false;
     private Transform _player;
+    private AudioSource _audioSource;
     private void Awake(){
+        _audioSource = GetComponent<AudioSource>();
         _player = transform.parent.parent;
-        _ball = Instantiate(Ball, transform.position, Quaternion.identity, transform).transform;
-        _ball.gameObject.SetActive(false);
         _enemy = Object.FindObjectOfType<EnemyManager>().transform;
     }
     public override bool CanUseSkill()
@@ -33,55 +33,54 @@ public class Energyball : BasicSkill
     public override void Skill()
     {
         // TODO: Spawn Ball
-        _ball.GetComponent<PlayerAttackCollider>().Damage = Damage;
+        _heldBall.GetComponent<PlayerAttackCollider>().Damage = Damage;
         bool isRight= !_player.GetComponent<SpriteRenderer>().flipY;
-        _ball.GetComponent<Animator>().SetTrigger("Release");
+        _heldBall.GetComponent<Animator>().SetTrigger("Release");
         // add force to ball
-        _ball.GetComponent<Rigidbody2D>().AddForce(isRight ? Vector2.right * ShootSpeed : Vector2.left * ShootSpeed, ForceMode2D.Impulse);
-        Invoke("DisableBall", 0.8f);
+        Vector2 direction = (_enemy.position - _player.position).normalized;
+        _heldBall.GetComponent<Rigidbody2D>().AddForce(direction * ShootSpeed, ForceMode2D.Impulse);
         _readyShoot = false;
+        _heldBall.gameObject.AddComponent<DestorySelf>();
+        _heldBall = null;
     }
     public override void LevelUp()
     {
         Damage += 5;
     }
-    private void DisableBall()
-    {
-        _ball.gameObject.SetActive(false);
-    }
+
     private void Update()
     {
-        
         if (CurrentCoolDownTime <= CoolDownTime){
             CurrentCoolDownTime += Time.deltaTime;
             return;
         }
-        if(Input.GetKeyDown(SkillKey)){
+        if(Input.GetKeyDown(SkillKey) && _heldBall == null && PlayerStatus.Instance.CurrentMP >= MPCost){
+            _heldBall = Instantiate(Ball, transform.position, Quaternion.identity, transform).transform;
             StartCoroutine(PreservingBall());
         }
     }
     private IEnumerator PreservingBall()
     {
-        _ball.localScale = Vector3.zero;
-        _ball.localPosition = Vector3.zero;
-        _ball.gameObject.SetActive(true);
+        _heldBall.localScale = Vector3.zero;
+        _heldBall.localPosition = Vector3.zero;
         float currentTime = 0f;
         for (currentTime = 0f; currentTime < PreservingTime + 1f; currentTime += Time.deltaTime)
         {
             if(!Input.GetKey(SkillKey))
                 break;
-            _ball.localScale = Vector3.one * (Mathf.Min(currentTime, PreservingTime) / PreservingTime);
-            _ball.localPosition = Vector3.zero;
-            //Debug.Log(_ball.transform.localScale);
+            _heldBall.localPosition = Vector3.zero;
+            //Debug.Log(_heldBall.transform.localScale);
             yield return null;
         }
         if(currentTime< PreservingTime){
             // Fail preserving
             _readyShoot = false;
-            _ball.gameObject.SetActive(false);
+            Destroy(_heldBall.gameObject);
+            _heldBall = null;
         }
         else{
             // Success preserving
+            _audioSource.Play();
             _readyShoot = true;
         }
     }

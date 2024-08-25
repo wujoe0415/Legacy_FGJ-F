@@ -31,6 +31,7 @@ public class bossAttack : MonoBehaviour
         else if (attackItem == 3)
         {
             this.gameObject.GetComponent<bulletSet>().shotting = true;
+            Invoke("stopShot", 3f);
         }
         else if (attackItem == 4)
         {
@@ -53,5 +54,9 @@ public class bossAttack : MonoBehaviour
     private void attackWithType4()
     {
         this.gameObject.GetComponent<claw>().attackDisplay();
+    }
+    private void stopShot()
+    {
+        this.gameObject.GetComponent<bulletSet>().shotting = false;
     }
 }

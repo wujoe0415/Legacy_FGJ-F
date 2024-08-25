@@ -5,6 +5,7 @@ using UnityEngine;
 public class Defend : BasicSkill
 {
     public float Defense = 0.5f;
+    private float _pastDefense = 0f;
     public override bool CanUseSkill()
     {
         if(CoolDownTime > CurrentCoolDownTime)
@@ -15,15 +16,18 @@ public class Defend : BasicSkill
     }
     public override void Skill()
     {
-        // TODO: BattleSystem Increment Defense
-        Debug.Log("Defense");
+        _pastDefense = PlayerStatus.Instance.DefensePoint;
+        PlayerStatus.Instance.DefensePoint = Defense;
+        Invoke("ResetDefense", Mathf.Min(0.4f, CoolDownTime - 0.1f));
+    }
+    private void ResetDefense()
+    {
+        PlayerStatus.Instance.DefensePoint = _pastDefense;
+        OnSkillRelease.Invoke();
     }
     public override void LevelUp()
     {
         Defense += 0.5f;
     }
-    private void Awake()
-    {
-        OnSkillRelease += ()=>{Debug.Log("Recover defense");};
-    }
+    
 }

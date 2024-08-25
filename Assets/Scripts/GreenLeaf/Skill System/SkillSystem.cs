@@ -5,15 +5,22 @@ using UnityEngine;
 public class SkillSystem : MonoBehaviour
 {
     public List<BasicSkill> AvailableSkills = new List<BasicSkill>();
-
-    private void Update()
+    private void Start()
     {
-        foreach(BasicSkill skill in AvailableSkills)
+        StartCoroutine(CheckSkill());
+    }
+    IEnumerator CheckSkill()
+    {
+        while(true)
         {
-            if(skill.CanUseSkill())
+            foreach(BasicSkill skill in AvailableSkills)
             {
-                skill.UseSkill();
+                if(skill.CanUseSkill())
+                {
+                    skill.UseSkill();
+                }
             }
+            yield return null;
         }
     }
     public void AppendSkill(BasicSkill skill)

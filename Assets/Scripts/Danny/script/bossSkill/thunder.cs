@@ -21,32 +21,24 @@ public class thunder : MonoBehaviour
         thunder2.SetActive(false);
         thunder3.SetActive(false);
 
-        InvokeRepeating("aimDisplay",0f, 0.5f);
+        InvokeRepeating("aimDisplay",0f, 1f);
     }
 
     private void aimDisplay()
     {
-        if (count == 4)
+        if (count == 3)
         {
             thunder1.SetActive(true);
             thunder2.SetActive(true);
             thunder3.SetActive(true);
 
-            StartCoroutine("destroyItem");
-        }
-        if (aim1.activeInHierarchy == false && count <= 3)
-        {
-            aim1.SetActive(true);
-            aim2.SetActive(true);
-            aim3.SetActive(true);
-        }
-        else if (aim1.activeInHierarchy == true)
-        {
             aim1.SetActive(false);
             aim2.SetActive(false);
             aim3.SetActive(false);
-            count += 1;
+
+            StartCoroutine("destroyItem");
         }
+        count += 1;
     }
 
     IEnumerator destroyItem()

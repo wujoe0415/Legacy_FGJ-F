@@ -9,7 +9,6 @@ public class bossAttack : MonoBehaviour
     private void Start()
     {
         int attackItem = Random.Range(0, attackList.Length);
-        Debug.Log(attackItem);
         GameObject obj = null;
         if (attackItem == 2)
         {
@@ -23,11 +22,18 @@ public class bossAttack : MonoBehaviour
             }
             
         }
+        else if(attackItem == 3)
+        {
+            this.gameObject.GetComponent<bulletSet>().shotting = true;
+        }
         else
         {
             obj = Instantiate(attackList[attackItem]);
         }
 
-        obj.SetActive(true);
+        if(attackItem != 3)
+        {
+            obj.SetActive(true);
+        }
     }
 }

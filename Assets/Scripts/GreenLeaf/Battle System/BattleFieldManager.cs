@@ -20,10 +20,15 @@ public class BattleFieldManager : MonoBehaviour
     public void StartBattle()
     {
         GameObject nextPlayer = Instantiate(Players[currentPlayerIndex], PlayerSpawnPoint.position, Quaternion.identity, this.transform);
+        GameObject SkillSystem = new GameObject("SkillSystem");
+        SkillSystem.transform.parent = nextPlayer.transform;
+        SkillSystem.transform.localPosition = Vector3.zero;
+
         SkillSystem nextSS = nextPlayer.AddComponent<SkillSystem>();
         for (int i = 0; i < currentPlayerIndex+1; i++)
         {
-            nextSS.AppendSkill(Skills[i]);
+            BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
+            nextSS.AppendSkill(s);
         }
         EnemyManager em = Enemy.GetComponent<EnemyManager>();
         em.SetTarget(nextPlayer);

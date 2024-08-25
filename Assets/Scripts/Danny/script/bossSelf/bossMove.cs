@@ -19,6 +19,7 @@ public class bossMove : MonoBehaviour
     {
         go.SetActive(true);
         yield return new WaitForSeconds(3);
+        go.GetComponent<bulletSet>().shotting = false;
         go.SetActive(false);
     }
 

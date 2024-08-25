@@ -25,29 +25,6 @@ public class energyBall : MonoBehaviour
         else
         {
             transform.position = Vector2.Lerp(transform.position, transform.position + dir * 1.5f, 1.5f * Time.deltaTime);
-            //if (playerPos.x > initPos.x)
-            //{
-                
-            //    //if (playerPos.y > initPos.y)
-            //    //{
-            //    //    this.transform.position = Vector2.Lerp(this.transform.position, , 2 * (playerPos.y + Mathf.Abs(playerPos.y - this.transform.position.y))), 1f * Time.deltaTime);
-            //    //}
-            //    //else
-            //    //{
-            //    //    this.transform.position = Vector2.Lerp(this.transform.position, new Vector2(2 * (playerPos.x + Mathf.Abs(playerPos.x - this.transform.position.x)), 2 * (playerPos.y - Mathf.Abs(playerPos.y - this.transform.position.y))), 1f * Time.deltaTime);
-            //    //}
-            //}
-            //else if (playerPos.x < initPos.x)
-            //{
-            //    if (playerPos.y > initPos.y)
-            //    {
-            //        this.transform.position = Vector2.Lerp(this.transform.position, new Vector2(2 * (playerPos.x - Mathf.Abs(playerPos.x - this.transform.position.x)), 2 * (playerPos.y - Mathf.Abs(playerPos.y - this.transform.position.y))), 1f * Time.deltaTime);
-            //    }
-            //    else
-            //    {
-            //        this.transform.position = Vector2.Lerp(this.transform.position, new Vector2(2 * (playerPos.x - Mathf.Abs(playerPos.x - this.transform.position.x)), 2 * (playerPos.y + Mathf.Abs(playerPos.y - this.transform.position.y))), 1f * Time.deltaTime);
-            //    }
-            //}
             if(this.gameObject.transform.position.y <= -5f)
             {
                 Destroy(this.gameObject);

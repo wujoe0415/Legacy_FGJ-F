@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Art/image/UI-GameTeach-01-All.jpg.meta
 guid: 8160ad7caab7bee4081cd1ef77cd0211
+=======
+guid: 16b4e3d84264bd349a6c7b266312660a
+>>>>>>> e98f50d96248fec34a00b3cb35a8eed80795bd2c:Assets/Scripts/Tai/Tai_images/BG-GameOver.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -66,6 +70,7 @@ TextureImporter:
   applyGammaDecoding: 0
   swizzle: 50462976
   cookieLightType: 0
+<<<<<<< HEAD:Assets/Art/image/UI-GameTeach-01-All.jpg.meta
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -145,13 +150,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+  platformSettings: []
+>>>>>>> e98f50d96248fec34a00b3cb35a8eed80795bd2c:Assets/Scripts/Tai/Tai_images/BG-GameOver.jpg.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 

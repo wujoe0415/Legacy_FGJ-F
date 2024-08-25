@@ -186,6 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackList:
-  - {fileID: 133589452901094894, guid: 9b20eb9e25485d149a7f8559e4d78759, type: 3}
-  - {fileID: 7669018167662932981, guid: 8316d9f2674b53d438c4f27855b6d59c, type: 3}
+  - {fileID: 5104210191177868838, guid: 35d0904d008d18b42b412d391fc1cd45, type: 3}
+  - {fileID: 4953647480809305023, guid: 5c256b65a7f825640ae71116ed78d291, type: 3}
   - {fileID: 3689820496651929195, guid: cb1715d08ea1b9d4ba130f453347cea9, type: 3}

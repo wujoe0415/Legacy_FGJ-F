@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class energyBall : MonoBehaviour
 {
-    [SerializeField] private GameObject boss,player;
-    private Vector2 initPos, bossPos, playerPos;
+    [SerializeField] private GameObject player;
+    private Vector2 initPos, playerPos;
     private bool isShot = false;
     private Vector3 dir = Vector3.zero;
 
     private void Start()
     {
-        bossPos = boss.transform.position;
-        
-        if (bossPos.x <= 0)
-        {
-            this.gameObject.transform.position = new Vector2(-7f, 3.5f);
-        }
-        else
-        {
-            this.gameObject.transform.position = new Vector2(7f, 3.5f);
-        }
-
         initPos = this.gameObject.transform.position;
-
+        player = GameObject.Find("player");
         Invoke("energyBallMove", 3f);
     }
 
@@ -59,6 +48,10 @@ public class energyBall : MonoBehaviour
             //        this.transform.position = Vector2.Lerp(this.transform.position, new Vector2(2 * (playerPos.x - Mathf.Abs(playerPos.x - this.transform.position.x)), 2 * (playerPos.y + Mathf.Abs(playerPos.y - this.transform.position.y))), 1f * Time.deltaTime);
             //    }
             //}
+            if(this.gameObject.transform.position.y <= -5f)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 

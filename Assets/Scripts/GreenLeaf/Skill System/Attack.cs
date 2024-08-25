@@ -10,6 +10,7 @@ public class Attack : BasicSkill
     private GameObject _sword;
     public Transform RightHoldPoint;
     public Transform LeftHoldPoint;
+    public GameObject AttackCG;
     private void Awake()
     {
         _player = transform.parent.parent;
@@ -28,15 +29,18 @@ public class Attack : BasicSkill
     {
         _sword.SetActive(true);
         _sword.GetComponent<PlayerAttackCollider>().Damage = Damage;
-        bool isRight= !_player.GetComponent<SpriteRenderer>().flipY;
+        bool isRight= _player.GetComponent<SpriteRenderer>().flipX;
         _sword.GetComponent<Animator>().SetBool("IsRight", isRight);
         _sword.transform.parent = isRight ? RightHoldPoint: LeftHoldPoint;
+        AttackCG.transform.localRotation = Quaternion.Euler(0, 0, isRight ? 0 : 180);
         Invoke("DisableSword", 0.26f);
-        Debug.Log("Attack!");
+        AttackCG.SetActive(true);
+        //Debug.Log("Attack!");
     }
     private void DisableSword()
     {
         _sword.SetActive(false);
+        AttackCG.SetActive(false);
     } 
     public override void LevelUp()
     {

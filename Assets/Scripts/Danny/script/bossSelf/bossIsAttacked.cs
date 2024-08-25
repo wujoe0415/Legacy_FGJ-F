@@ -14,12 +14,8 @@ public class bossIsAttacked : MonoBehaviour
         audiosource = GetComponent<AudioSource>();
         bossList = GameObject.Find("bossList");
     }
-    private void OnTriggerEnter2D(Collider2D collider)
+    public void TakeDamage(int damage)
     {
-        if (collider.tag == "attackObject")
-        {
-            audiosource.PlayOneShot(hitSound);
-            bossList.GetComponent<bossHp>().hp -= 1;
-        }
+        bossList.GetComponent<bossHp>().hp -= damage;
     }
 }

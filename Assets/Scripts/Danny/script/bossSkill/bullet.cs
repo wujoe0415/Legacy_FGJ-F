@@ -38,7 +38,10 @@ public class bullet : MonoBehaviour
             counter++;
             if (counter > bc.trace_value && bc.trace_count > 0)
             {
-                float AngleZ = Mathf.Atan2(player.transform.position.y - this.transform.position.y, player.transform.position.x - this.transform.position.x);
+                
+                float AngleZ = Random.Range(0, 3.14f);
+                if (player != null)
+                    AngleZ = Mathf.Atan2(player.transform.position.y - this.transform.position.y, player.transform.position.x - this.transform.position.x);
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, AngleZ * Mathf.Rad2Deg - 90));
                 counter = 0;
                 bc.trace_count--;

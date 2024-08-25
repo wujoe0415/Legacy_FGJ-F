@@ -15,11 +15,13 @@ public class BattleFieldManager : MonoBehaviour
     public void InitBattle()
     {
         currentPlayerIndex = 0;
-        GameObject enemy = Instantiate(Enemy, EnemySpawnPoint.position, Quaternion.identity, this.transform);
+        Enemy.transform.position = new Vector3(0, 0, 0);
+        //GameObject enemy = Instantiate(Enemy, EnemySpawnPoint.position, Quaternion.identity, this.transform);
     }
     public void StartBattle()
     {
         GameObject nextPlayer = Instantiate(Players[currentPlayerIndex], PlayerSpawnPoint.position, Quaternion.identity, this.transform);
+        nextPlayer.name = "player";
         GameObject SkillSystem = new GameObject("SkillSystem");
         SkillSystem.transform.parent = nextPlayer.transform;
         SkillSystem.transform.localPosition = Vector3.zero;
@@ -30,18 +32,24 @@ public class BattleFieldManager : MonoBehaviour
             BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
             nextSS.AppendSkill(s);
         }
-        EnemyManager em = Enemy.GetComponent<EnemyManager>();
-        em.SetTarget(nextPlayer);
-        em.ResetEnemy();
+        // for (int i = 0; i < Skills.Count; i++)
+        // {
+        //     BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
+        //     nextSS.AppendSkill(s);
+        // }
+        // EnemyManager em = Enemy.GetComponent<EnemyManager>();
+        // em.SetTarget(nextPlayer);
+        // em.ResetEnemy();
     }
 
     public void SwitchPlayer(GameObject Player)
     {
+        Debug.Log(currentPlayerIndex);
         if (currentPlayerIndex < Players.Count - 1)
             currentPlayerIndex++;
         else
         {
-            GameManager.Instance.OnGameLose.Invoke();
+            GameManager.Instance.OnGameOver.Invoke();
             Debug.Log("Lose");
             return;
         }

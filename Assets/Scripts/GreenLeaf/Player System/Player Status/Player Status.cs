@@ -36,10 +36,10 @@ public class PlayerStatus : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            IncreaseHP(1f);
-        if (Input.GetKeyDown(KeyCode.J))
-            DecreaseHP(1f);
+        // if (Input.GetKeyDown(KeyCode.K))
+        //     IncreaseHP(1f);
+        // if (Input.GetKeyDown(KeyCode.J))
+        //     DecreaseHP(1f);
         
         if (Input.GetKeyDown(KeyCode.M))
             IncreaseMP(1);

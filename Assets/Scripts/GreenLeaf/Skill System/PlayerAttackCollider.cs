@@ -12,7 +12,7 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyManager>().TakeDamage(Damage);
+            other.GetComponent<bossIsAttacked>().TakeDamage((int)Damage);
         }
     }
 }

@@ -45,6 +45,10 @@ public class bossMove : MonoBehaviour
         go = gameObjectList[bossIndex];
         StartCoroutine(fadeOut(0.5f));
     }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 
     IEnumerator fadeOut(float duration)
     {

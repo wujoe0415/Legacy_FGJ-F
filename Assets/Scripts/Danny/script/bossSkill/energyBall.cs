@@ -20,7 +20,9 @@ public class energyBall : MonoBehaviour
     {
         if (!isShot)
         {
-            playerPos = player.transform.position;
+            playerPos = Vector2.zero;
+            if (player != null)
+                playerPos = player.transform.position;
         }
         else
         {
@@ -36,5 +38,6 @@ public class energyBall : MonoBehaviour
     {
         isShot = true;
         dir = new Vector3(playerPos.x - transform.position.x, playerPos.y - transform.position.y, 0f);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90));
     }
 }

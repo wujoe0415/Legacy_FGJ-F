@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 367210121214257171}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.94, y: 8.12, z: 0.014050597}
+  m_LocalPosition: {x: 5.35, y: 8.12, z: 0.014050597}
   m_LocalScale: {x: 0.55, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 1040302290898284346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.31, y: 3.9400005, z: 0.014050597}
+  m_LocalPosition: {x: 13.17, y: 2.940001, z: 0.014050597}
   m_LocalScale: {x: 0.55, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -397,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 6308751305879974146}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.81, y: 7.27, z: 0.014050597}
+  m_LocalPosition: {x: 5.22, y: 7.27, z: 0.014050597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5
 --- !u!1 &7337292836388580015
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 7337292836388580015}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.17, y: 2.88, z: 0.014050597}
+  m_LocalPosition: {x: 13.17, y: 1.88, z: 0.014050597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5
 --- !u!1 &7578267301504217248
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,4 +962,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5

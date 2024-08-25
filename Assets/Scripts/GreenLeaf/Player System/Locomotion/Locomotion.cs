@@ -35,7 +35,7 @@ public class Locomotion : MonoBehaviour
     private void Move(bool isRight)
     {
         int direction = isRight? 1:-1;
-        _sprite.flipY = !isRight; // Character faces right initially
+        _sprite.flipX = !isRight; // Character faces right initially
         transform.position += direction * Vector3.right * Speed * Time.deltaTime;
     }
     private bool CheckGrounded(){

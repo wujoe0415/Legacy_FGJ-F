@@ -10,7 +10,7 @@ public class BossAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Player.Instance.TakeDamage(Damage);
+            PlayerStatus.Instance.TakeDamage(Damage);
         }
     }
 }

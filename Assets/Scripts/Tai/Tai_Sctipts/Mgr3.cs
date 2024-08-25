@@ -29,34 +29,24 @@ public class Mgr3 : MonoBehaviour
             teachPanel.SetActive(false);
         }
         
-        //ED1測試鍵
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            fade.SetTrigger("fade");
-            isLose = true;
-            Invoke("LoadED",2f);
-        }
         
-        //ED2測試鍵
-        if (Input.GetKeyDown(KeyCode.O))
-        {
+    }
+    public void GameSuccess()
+    {
             fade.SetTrigger("fade");
             isWin = true;
             Invoke("LoadED",2f);
-
-        }
-        
-        //ED3測試鍵
-        if (Input.GetKeyDown(KeyCode.P))
-        {
+    }
+    public void GameOver()
+    {
             fade.SetTrigger("fade");
             allDie = true;
             Invoke("LoadED",2f);
-
-        }
-        
     }
-
+    public void Fade()
+    {
+        fade.SetTrigger("fade");
+    }
     void LoadED()
     {
         SceneManager.LoadScene("Tai_sED");

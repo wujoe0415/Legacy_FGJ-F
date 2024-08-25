@@ -11,11 +11,23 @@ public class BattleFieldManager : MonoBehaviour
     public GameObject Enemy;
     public Transform EnemySpawnPoint;
     public List<BasicSkill> Skills = new List<BasicSkill>();
-    private void Awake(){
+
+    public void InitBattle()
+    {
         currentPlayerIndex = 0;
-        GameObject player = Instantiate(Players[currentPlayerIndex], PlayerSpawnPoint.position, Quaternion.identity, this.transform);
         GameObject enemy = Instantiate(Enemy, EnemySpawnPoint.position, Quaternion.identity, this.transform);
-        // TODO: Init Battle
+    }
+    public void StartBattle()
+    {
+        GameObject nextPlayer = Instantiate(Players[currentPlayerIndex], PlayerSpawnPoint.position, Quaternion.identity, this.transform);
+        SkillSystem nextSS = nextPlayer.AddComponent<SkillSystem>();
+        for (int i = 0; i < currentPlayerIndex+1; i++)
+        {
+            nextSS.AppendSkill(Skills[i]);
+        }
+        EnemyManager em = Enemy.GetComponent<EnemyManager>();
+        em.SetTarget(nextPlayer);
+        em.ResetEnemy();
     }
 
     public void SwitchPlayer(GameObject Player)
@@ -28,17 +40,7 @@ public class BattleFieldManager : MonoBehaviour
             Debug.Log("Lose");
             return;
         }
-        SkillSystem skillSystem = Player.GetComponent<SkillSystem>();
-        GameObject nextPlayer = Instantiate(Players[currentPlayerIndex], PlayerSpawnPoint.position, Quaternion.identity, this.transform);
-        SkillSystem nextSS = nextPlayer.GetComponent<SkillSystem>();
-        for (int i = 0; i < currentPlayerIndex; i++)
-        {
-            nextSS.AppendSkill(Skills[i]);
-        }
-        Destroy(Player);
-        EnemyManager em = Enemy.GetComponent<EnemyManager>();
-        em.SetTarget(nextPlayer);
-        em.ResetEnemy();
+        GameManager.Instance.NextBattle();
     }
 
 }

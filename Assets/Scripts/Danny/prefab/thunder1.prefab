@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 5095442814564169854}
   - component: {fileID: 4201542090442921583}
   - component: {fileID: 3622881129621990159}
+  - component: {fileID: 5822090648415678188}
   m_Layer: 0
   m_Name: EG-lightning00 (2)
   m_TagString: Untagged
@@ -364,6 +365,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3690948, y: 4.117865}
   m_EdgeRadius: 0
+--- !u!114 &5822090648415678188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799388062357756158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &1896507668418994928
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +497,7 @@ GameObject:
   - component: {fileID: 3426367143082282904}
   - component: {fileID: 1148709596922372548}
   - component: {fileID: 2542228994742734280}
+  - component: {fileID: 5832548897747678232}
   m_Layer: 0
   m_Name: EG-lightning00
   m_TagString: Untagged
@@ -719,6 +734,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5832548897747678232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4325131317281887580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
 --- !u!1 &5104210191177868838
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +809,7 @@ GameObject:
   - component: {fileID: 3127346885249162304}
   - component: {fileID: 1029018688397582180}
   - component: {fileID: 1323797004780576011}
+  - component: {fileID: 5491442146443799127}
   m_Layer: 0
   m_Name: EG-lightning00 (1)
   m_TagString: Untagged
@@ -921,3 +950,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3690948, y: 4.3498836}
   m_EdgeRadius: 0
+--- !u!114 &5491442146443799127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811572058679701214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3158b3c5e26aa040b24cacfc3c17cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1

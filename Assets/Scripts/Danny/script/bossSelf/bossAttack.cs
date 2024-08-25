@@ -8,7 +8,7 @@ public class bossAttack : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("attack", 1.5f);
+        Invoke("attack", 2f);
     }
 
     private void attack()

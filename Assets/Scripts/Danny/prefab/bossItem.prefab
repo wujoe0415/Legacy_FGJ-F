@@ -223,7 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1039fd43665f254a8728756d1d2d1ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
 --- !u!1 &549143377472206451
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +235,7 @@ GameObject:
   - component: {fileID: 353523690455435181}
   m_Layer: 0
   m_Name: attackEffect
-  m_TagString: Untagged
+  m_TagString: attackObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,7 +487,7 @@ GameObject:
   - component: {fileID: 3032509614111550190}
   m_Layer: 0
   m_Name: attackEffect (1)
-  m_TagString: Untagged
+  m_TagString: attackObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

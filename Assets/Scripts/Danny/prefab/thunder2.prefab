@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 1820007895848488787}
   m_Layer: 0
   m_Name: EG-lightning00 (1)
-  m_TagString: Untagged
+  m_TagString: attackObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 6831350915576473370}
   m_Layer: 0
   m_Name: EG-lightning00 (2)
-  m_TagString: Untagged
+  m_TagString: attackObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 6201302014120512124}
   m_Layer: 0
   m_Name: EG-lightning00
-  m_TagString: Untagged
+  m_TagString: attackObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

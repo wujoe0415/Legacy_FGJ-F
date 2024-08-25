@@ -9,8 +9,8 @@ public class Energyball : BasicSkill
     public float ShootSpeed = 10f;
     public GameObject Ball;
     //private Transform _enemy;
-    public Transform _heldBall;
-    public bool _readyShoot = false;
+    private Transform _heldBall;
+    private bool _readyShoot = false;
     private Transform _player;
     private AudioSource _audioSource;
     private void Awake(){

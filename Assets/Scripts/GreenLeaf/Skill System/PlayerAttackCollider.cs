@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerAttackCollider : MonoBehaviour
 {
+    private AudioSource m_AudioSource;
+    private void Awake()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+    }
     public float Damage{
         set;
         get;
@@ -12,7 +18,8 @@ public class PlayerAttackCollider : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<bossIsAttacked>().TakeDamage((int)Damage);
+            m_AudioSource.Play();
+            EnemyManager.Instance.TakeDamage((int)Damage);
         }
     }
 }

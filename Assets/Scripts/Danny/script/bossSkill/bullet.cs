@@ -6,7 +6,6 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public bullet_con bc = new bullet_con();
-    public GameObject boss,player;
     private float counter = 0;
 
 
@@ -15,8 +14,6 @@ public class bullet : MonoBehaviour
     {
         transform.rotation = bc.Init;
         transform.position = bc.position;
-        boss = GameObject.Find("bossList");
-        player = GameObject.Find("player");
     }
 
     // Update is called once per frame
@@ -40,8 +37,8 @@ public class bullet : MonoBehaviour
             {
                 
                 float AngleZ = Random.Range(0, 3.14f);
-                if (player != null)
-                    AngleZ = Mathf.Atan2(player.transform.position.y - this.transform.position.y, player.transform.position.x - this.transform.position.x);
+                if (EnemyManager.Instance.Target != null)
+                    AngleZ = Mathf.Atan2(EnemyManager.Instance.Target.transform.position.y - this.transform.position.y, EnemyManager.Instance.Target.transform.position.x - this.transform.position.x);
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, AngleZ * Mathf.Rad2Deg - 90));
                 counter = 0;
                 bc.trace_count--;
@@ -49,10 +46,6 @@ public class bullet : MonoBehaviour
         }
 
         if (transform.position.y >= 7 || transform.position.y <= -7 || transform.position.x >= 10 || transform.position.x <= -10)
-        {
-            Destroy(this.gameObject);
-        }
-        if (boss.GetComponent<bossHp>().hp <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -65,7 +58,4 @@ public class bullet : MonoBehaviour
         public float speed_up_value = 0f, rotate_value = 0f;
         public int trace_value = 0, trace_count = 0;
     }
-
-
-
 }

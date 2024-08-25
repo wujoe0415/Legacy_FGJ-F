@@ -6,10 +6,19 @@ public class EnemyManager : MonoBehaviour
 {
     public GameObject Target;
     public float HealthPoint = 100f;
-    public float AttackPoint = 10f;
+    public static EnemyManager Instance;
+
+    public void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public void TakeDamage(float damage)
     {
+        Debug.Log(damage);
         HealthPoint -= damage;
         if (HealthPoint <= 0)
         {

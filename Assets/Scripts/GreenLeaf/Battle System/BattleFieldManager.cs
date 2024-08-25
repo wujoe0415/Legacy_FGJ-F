@@ -16,12 +16,11 @@ public class BattleFieldManager : MonoBehaviour
     {
         currentPlayerIndex = 0;
         Enemy.transform.position = new Vector3(0, 0, 0);
-        //GameObject enemy = Instantiate(Enemy, EnemySpawnPoint.position, Quaternion.identity, this.transform);
+        GameObject enemy = Instantiate(Enemy, EnemySpawnPoint.position, Quaternion.identity, this.transform);
     }
     public void StartBattle()
     {
         GameObject nextPlayer = Instantiate(Players[currentPlayerIndex], PlayerSpawnPoint.position, Quaternion.identity, this.transform);
-        nextPlayer.name = "player";
         GameObject SkillSystem = new GameObject("SkillSystem");
         SkillSystem.transform.parent = nextPlayer.transform;
         SkillSystem.transform.localPosition = Vector3.zero;
@@ -37,9 +36,9 @@ public class BattleFieldManager : MonoBehaviour
         //     BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
         //     nextSS.AppendSkill(s);
         // }
-        // EnemyManager em = Enemy.GetComponent<EnemyManager>();
-        // em.SetTarget(nextPlayer);
-        // em.ResetEnemy();
+        EnemyManager em = Enemy.GetComponent<EnemyManager>();
+        em.SetTarget(nextPlayer);
+        em.ResetEnemy();
     }
 
     public void SwitchPlayer(GameObject Player)

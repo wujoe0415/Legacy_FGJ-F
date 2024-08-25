@@ -13,13 +13,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
     private void Start()
     {
@@ -53,23 +49,5 @@ public class GameManager : MonoBehaviour
     public void GameSuccess()
     {
         OnGameWin?.Invoke();
-    }
-    private void Update()
-    {
-        
-        
-        //ED2測試鍵
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            GameSuccess();
-        }
-        
-        //ED3測試鍵
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            
-GameOver();
-        }
-        
     }
 }

@@ -53,7 +53,7 @@ MonoBehaviour:
   PreservingTime: 0.8
   Damage: 10
   ShootSpeed: 18
-  Ball: {fileID: 5885488350340873632, guid: 24b32056d7bf9cc4b9fda28715e3c528, type: 3}
+  Ball: {fileID: 7075777875749886825, guid: 53f9f4d777dc4814a9e71efb4f3809b6, type: 3}
   _heldBall: {fileID: 0}
   _readyShoot: 0
 --- !u!82 &6520371325065258839

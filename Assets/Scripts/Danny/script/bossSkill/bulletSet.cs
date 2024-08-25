@@ -16,7 +16,7 @@ public class bulletSet : MonoBehaviour
             counter++;
             Vector3 bullet_angle = new Vector3(0, 0, Random.Range(0, 360));
             Vector3 pos = this.transform.position + new Vector3(Random.Range(-0.5f, 0.5f) < 0 ? 1 : -1, Random.Range(-0.5f, 0.5f) < 0 ? 1 : -1, 0);
-            if (counter % 100 == 0)
+            if (counter % 200 == 0)
             {
                 b = Instantiate(bullet, transform.position, new Quaternion(0, 0, 0, 0));
                 b.GetComponent<bullet>().bc.Init = Quaternion.Euler(bullet_angle);

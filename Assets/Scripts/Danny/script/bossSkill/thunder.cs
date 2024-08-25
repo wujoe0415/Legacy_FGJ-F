@@ -23,7 +23,6 @@ public class thunder : MonoBehaviour
 
         InvokeRepeating("aimDisplay",0f, 1f);
     }
-
     private void aimDisplay()
     {
         if (count == 3)

@@ -15,6 +15,7 @@ public class bossAttack : MonoBehaviour
     {
         int attackItem = Random.Range(0, attackList.Length);
         Debug.Log(attackItem);
+        attackItem = 3;
         GameObject obj = null;
         if (attackItem == 2)
         {

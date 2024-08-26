@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Dash : BasicSkill
 {
-    public GameObject Player;
     public float Distance = 1f;
     private IEnumerator _coroutine;
     public int InvincibleFrames = 15;
-    public GameObject DashEffect;
-    private void Awake()
-    {
-        Player = GameObject.FindWithTag("Player");
-    }
+    public int DashFrame = 35;
     public override bool CanUseSkill()
     {
         if(CoolDownTime > CurrentCoolDownTime)
@@ -26,21 +21,18 @@ public class Dash : BasicSkill
         StartCoroutine(InvincibleDash());
     }
     private IEnumerator InvincibleDash(){
-        bool isRight = Player.GetComponent<SpriteRenderer>().flipX;
-        Vector3 faceDir = isRight? Vector3.left:Vector3.right;
-        if(isRight)
-            DashEffect.transform.rotation = Quaternion.Euler(0,0,0);
-        else
-            DashEffect.transform.rotation = Quaternion.Euler(0,180,0);
-        DashEffect.SetActive(true);
-        for(int i = 0;i<InvincibleFrames;i++)
+        Vector3 faceDir = isRight? Vector3.right: Vector3.left;
+        Vector2 invFrames = new Vector2((DashFrame - InvincibleFrames) / 2, (DashFrame - InvincibleFrames) / 2 + InvincibleFrames);
+        for(int i = 0;i<DashFrame;i++)
         {
-            PlayerStatus.Instance.isInvincible = true;
-            Player.transform.position += faceDir * Distance/InvincibleFrames;
+            if(i>= invFrames[0] && i < invFrames[1])
+                PlayerStatus.Instance.isInvincible = true;
+            else 
+                PlayerStatus.Instance.isInvincible = false;
+
+            transform.parent.parent.position += faceDir * Distance/ (float)DashFrame;
             yield return null;
         }
-        PlayerStatus.Instance.isInvincible = false;
-        DashEffect.SetActive(false);
     }
     public override void LevelUp()
     {

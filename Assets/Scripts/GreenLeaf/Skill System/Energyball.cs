@@ -8,15 +8,14 @@ public class Energyball : BasicSkill
     public float Damage = 10f;
     public float ShootSpeed = 10f;
     public GameObject Ball;
-    //private Transform _enemy;
+    private Transform _enemy;
     private Transform _heldBall;
     private bool _readyShoot = false;
-    private Transform _player;
-    private AudioSource _audioSource;
+    private AudioSource _gatheringSound;
+
     private void Awake(){
-        _audioSource = GetComponent<AudioSource>();
-        _player = transform.parent.parent;
-        //_enemy = Object.FindObjectOfType<EnemyManager>().transform;
+        _gatheringSound = GetComponent<AudioSource>();
+        _enemy = Object.FindObjectOfType<EnemyManager>().transform;
     }
     public override bool CanUseSkill()
     {
@@ -34,10 +33,9 @@ public class Energyball : BasicSkill
     {
         // TODO: Spawn Ball
         _heldBall.GetComponent<PlayerAttackCollider>().Damage = Damage;
-        bool isRight= !_player.GetComponent<SpriteRenderer>().flipY;
         _heldBall.GetComponent<Animator>().SetTrigger("Release");
         // add force to ball
-        Vector2 direction = isRight ? Vector2.right : Vector2.left;
+        Vector2 direction = _enemy.position - transform.position;
         _heldBall.GetComponent<Rigidbody2D>().AddForce(direction * ShootSpeed, ForceMode2D.Impulse);
         _readyShoot = false;
         _heldBall.gameObject.AddComponent<DestorySelf>();
@@ -80,7 +78,7 @@ public class Energyball : BasicSkill
         }
         else{
             // Success preserving
-            _audioSource.Play();
+            _gatheringSound.Play();
             _readyShoot = true;
         }
     }

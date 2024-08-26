@@ -24,7 +24,6 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.Instance.OnGameWin.Invoke();
-            Debug.Log("Enemy Die");
         }
     }
     public void SetTarget(GameObject target)

@@ -26,16 +26,16 @@ public class BattleFieldManager : MonoBehaviour
         SkillSystem.transform.localPosition = Vector3.zero;
 
         SkillSystem nextSS = nextPlayer.AddComponent<SkillSystem>();
-        for (int i = 0; i < currentPlayerIndex+1; i++)
+        //for (int i = 0; i < currentPlayerIndex+1; i++)
+        //{
+        //    BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
+        //    nextSS.AppendSkill(s);
+        //}
+        for (int i = 0; i < Skills.Count; i++)
         {
             BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
             nextSS.AppendSkill(s);
         }
-        // for (int i = 0; i < Skills.Count; i++)
-        // {
-        //     BasicSkill s = Instantiate(Skills[i], SkillSystem.transform).GetComponent<BasicSkill>();
-        //     nextSS.AppendSkill(s);
-        // }
         EnemyManager em = Enemy.GetComponent<EnemyManager>();
         em.SetTarget(nextPlayer);
         em.ResetEnemy();

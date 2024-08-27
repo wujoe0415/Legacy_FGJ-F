@@ -12,8 +12,8 @@ public class Energyball : BasicSkill
     private Transform _heldBall;
     private bool _readyShoot = false;
     private AudioSource _gatheringSound;
-
-    private void Awake(){
+    
+    private void Start(){
         _gatheringSound = GetComponent<AudioSource>();
         _enemy = Object.FindObjectOfType<EnemyManager>().transform;
     }
@@ -31,11 +31,12 @@ public class Energyball : BasicSkill
     }
     public override void Skill()
     {
-        // TODO: Spawn Ball
         _heldBall.GetComponent<PlayerAttackCollider>().Damage = Damage;
         _heldBall.GetComponent<Animator>().SetTrigger("Release");
         // add force to ball
-        Vector2 direction = _enemy.position - transform.position;
+        Vector2 direction = isRight ? Vector2.right : Vector2.left;
+        if(_enemy!=null)
+            direction = _enemy.position - transform.position;
         _heldBall.GetComponent<Rigidbody2D>().AddForce(direction * ShootSpeed, ForceMode2D.Impulse);
         _readyShoot = false;
         _heldBall.gameObject.AddComponent<DestorySelf>();
@@ -62,15 +63,18 @@ public class Energyball : BasicSkill
         _heldBall.localScale = Vector3.zero;
         _heldBall.localPosition = Vector3.zero;
         float currentTime = 0f;
+        _gatheringSound.Play();
+        SpriteRenderer _ballSR = _heldBall.GetComponent<SpriteRenderer>();
         for (currentTime = 0f; currentTime < PreservingTime + 1f; currentTime += Time.deltaTime)
         {
             if(!Input.GetKey(SkillKey))
                 break;
             _heldBall.localPosition = Vector3.zero;
-            //Debug.Log(_heldBall.transform.localScale);
+            _ballSR.flipX = isRight? _spriteRightFaced : !_spriteRightFaced;//Debug.Log(_heldBall.transform.localScale);
             yield return null;
         }
-        if(currentTime< PreservingTime){
+        _gatheringSound.Stop();
+        if (currentTime< PreservingTime){
             // Fail preserving
             _readyShoot = false;
             Destroy(_heldBall.gameObject);
@@ -78,8 +82,13 @@ public class Energyball : BasicSkill
         }
         else{
             // Success preserving
-            _gatheringSound.Play();
             _readyShoot = true;
+            while (_heldBall != null)
+            {
+                _ballSR.flipX = isRight ? _spriteRightFaced : !_spriteRightFaced;
+                _heldBall.localPosition = Vector3.zero;
+                yield return null;
+            }
         }
     }
 }

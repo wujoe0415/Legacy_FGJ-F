@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class energyBall : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
     private Vector2 initPos, playerPos;
     private bool isShot = false;
     private Vector3 dir = Vector3.zero;
@@ -12,7 +11,6 @@ public class energyBall : MonoBehaviour
     private void Start()
     {
         initPos = this.gameObject.transform.position;
-        player = GameObject.Find("player");
         Invoke("energyBallMove", 3f);
     }
 
@@ -21,8 +19,8 @@ public class energyBall : MonoBehaviour
         if (!isShot)
         {
             playerPos = Vector2.zero;
-            if (player != null)
-                playerPos = player.transform.position;
+            if (EnemyManager.Instance.Target != null)
+                playerPos = EnemyManager.Instance.Target.transform.position;
         }
         else
         {

@@ -43,7 +43,6 @@ public class BattleFieldManager : MonoBehaviour
 
     public void SwitchPlayer(GameObject Player)
     {
-        Debug.Log(currentPlayerIndex);
         if (currentPlayerIndex < Players.Count - 1)
             currentPlayerIndex++;
         else

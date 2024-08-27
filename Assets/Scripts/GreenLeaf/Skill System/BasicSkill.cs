@@ -26,7 +26,7 @@ public class BasicSkill : MonoBehaviour
     public Transform RightCGPoint;
     public Transform LeftCGPoint;
     public bool isDetach = false;
-    private bool _spriteRightFaced = true;
+    protected bool _spriteRightFaced = true;
     private SpriteRenderer _playerFaceDir;
     public float SpecialEffectDuration = 0.5f;
     private AudioSource _audioSource;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class thunder : MonoBehaviour
+public class thunder : BossBasicSkill
 {
     private GameObject aim1, aim2, aim3;
     private GameObject thunder1, thunder2, thunder3;

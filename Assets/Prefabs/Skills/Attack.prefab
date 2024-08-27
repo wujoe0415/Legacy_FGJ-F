@@ -50,13 +50,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillKey: 106
-  CoolDownTime: 0.6
+  CoolDownTime: 0.5
   MPCost: 0
   CurrentProficency: 1
   UsageLevelStandard: 10
   SpecialEffect: {fileID: 8850999343858931863}
   RightCGPoint: {fileID: 556609458864661640}
   LeftCGPoint: {fileID: 2888426598129518131}
+  isDetach: 0
   SpecialEffectDuration: 0.5
   Damage: 1
   LeftDamageZone: {fileID: 6573319698380991085}
@@ -661,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6947370000497693097, guid: d62bdc4b1b3f69645b1a267bfcbe8bb7, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6951181282817644263, guid: d62bdc4b1b3f69645b1a267bfcbe8bb7, type: 3}
       propertyPath: m_LocalPosition.x

@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillKey: 304
-  CoolDownTime: 1
-  MPCost: 1
+  CoolDownTime: 0.3
+  MPCost: 0
   CurrentProficency: 1
   UsageLevelStandard: 15
   SpecialEffect: {fileID: 4739805825477324719}
@@ -59,7 +59,7 @@ MonoBehaviour:
   LeftCGPoint: {fileID: 59610840279858518}
   isDetach: 1
   SpecialEffectDuration: 0.15
-  Distance: 1
+  Distance: 1.2
   InvincibleFrames: 15
   DashFrame: 35
 --- !u!82 &4453632175222800489
@@ -235,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 2477046660115150656}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0.53, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -266,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 3502335263407438687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.01, z: 0}
+  m_LocalPosition: {x: -0.57, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,11 +294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7392827706411351426, guid: 2ff43294d006e274ea68c70571cc7b35, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 7392827706411351426, guid: 2ff43294d006e274ea68c70571cc7b35, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 7392827706411351426, guid: 2ff43294d006e274ea68c70571cc7b35, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2,62 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class claw : MonoBehaviour
+public class Claw : BossBasicSkill
 {
-    private GameObject claw1, claw2;
-    private GameObject attackEffect1, attackEffect2;
+    public SpriteRenderer ClawPrefab;
+    public SpriteRenderer ClawEffect;
+    private bool _faceRight;
 
-    private GameObject player;
-
-    private int count = 0;
     private void Start()
     {
-        player = GameObject.Find("player");
-
-        claw1 = transform.GetChild(0).gameObject;
-        claw2 = transform.GetChild(2).gameObject;
-
-        attackEffect1 = transform.GetChild(1).gameObject;
-        attackEffect2 = transform.GetChild(3).gameObject;
+        _faceRight = ClawPrefab.flipX;
     }
 
-    public void attackDisplay()
+    public override void UseSkill()
     {
-        if (this.gameObject.transform.position.x > player.transform.position.x)
-        {
-            claw1.SetActive(true);
-        }
-        else if (this.gameObject.transform.position.x < player.transform.position.x)
-        {
-            claw2.SetActive(true);
-        }
-
-        if (count == 3)
-        {
-            if (this.gameObject.transform.position.x > player.transform.position.x)
-            {
-                attackEffect1.SetActive(true);
-            }
-            else if (this.gameObject.transform.position.x < player.transform.position.x)
-            {
-                attackEffect2.SetActive(true);
-            }
-
-            claw1.SetActive(false);
-            claw2.SetActive(false);
-
-            StartCoroutine("displayItem");
-        }
-        count += 1;
+        bool isRight = false;
+        ClawPrefab.gameObject.SetActive(true);
+        if (EnemyManager.Instance.Target != null)
+            isRight = transform.position.x > EnemyManager.Instance.Target.transform.position.x;
+        ClawPrefab.flipX = isRight ? _faceRight : !_faceRight;
+        ClawEffect.flipX = isRight ? _faceRight : !_faceRight;
+        ClawEffect.gameObject.SetActive(true);
+        StartCoroutine(DisplayClaw());
     }
-
-    IEnumerator displayItem()
+    private IEnumerator DisplayClaw()
     {
         yield return new WaitForSeconds(1f);
-        claw1.SetActive(false);
-        claw2.SetActive(false);
-        attackEffect1.SetActive(false);
-        attackEffect2.SetActive(false);
+        ClawPrefab.gameObject.SetActive(false);
+        ClawEffect.gameObject.SetActive(false);
     }
-
 }

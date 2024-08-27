@@ -54,8 +54,8 @@ public class bullet : MonoBehaviour
     {
         public Quaternion Init;
         public Vector3 position, Initspeed;
-        public bool speed_up_bool = false, rotate_bool = false, trace_bool = false;
-        public float speed_up_value = 0f, rotate_value = 0f;
-        public int trace_value = 0, trace_count = 0;
+        public bool speed_up_bool = true, rotate_bool = false, trace_bool = true;
+        public float speed_up_value = 0.000005f, rotate_value = 0f;
+        public int trace_value = 0, trace_count = 1;
     }
 }

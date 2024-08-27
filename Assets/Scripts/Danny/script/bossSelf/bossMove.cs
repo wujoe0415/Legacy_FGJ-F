@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class BossMove : MonoBehaviour
 {
-    [SerializeField]private List<GameObject> gameObjectList;
     public List<Transform> SpawnPoints = new List<Transform>();
     public bool isPause = false;
     private int _currentIndex;
-    private Transform _boss;
+    public BossAttack _attack;
 
-    private void Start()
+    private void OnEnable()
     {
-        _boss = transform;
-        _boss.position = SpawnPoints[0].position;
+        transform.position = SpawnPoints[0].position;
         StartCoroutine(RandomSpawn());
     }
+    
     IEnumerator RandomSpawn()
     {
         WaitForSeconds preload = new WaitForSeconds(0.8f);
+        WaitForSeconds moveGap = new WaitForSeconds(5.2f);
         while (true)
         {
             if (!isPause)
             {
                 yield return preload;
-                int bossIndex = Random.Range(0, SpawnPoints.Count);
-                while(bossIndex != _currentIndex)
-                {
-                    bossIndex = Random.Range(0, SpawnPoints.Count);
-                }
-
+                _attack.Attack();
+                yield return moveGap;
                 StartCoroutine(fadeIn(0.5f));
-                yield return new WaitForSeconds(7);
-                // TODO: bulletSet Debug
-                GetComponent<bulletSet>().shotting = false;
+                int bossIndex = Random.Range(0, SpawnPoints.Count);
+                while (bossIndex == _currentIndex)
+                    bossIndex = Random.Range(0, SpawnPoints.Count);
                 _currentIndex = bossIndex;
+                transform.position = SpawnPoints[_currentIndex].position;
                 StartCoroutine(fadeOut(0.5f));
             }
         }
@@ -50,7 +47,7 @@ public class BossMove : MonoBehaviour
         Color startColor = new Color(1, 1, 1, 1);
         Color endColor = new Color(1, 1, 1, 0);
         float time = 0;
-        SpriteRenderer sr = _boss.GetComponent<SpriteRenderer>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
         while (time < duration)
         {
             time += Time.deltaTime;
@@ -64,7 +61,7 @@ public class BossMove : MonoBehaviour
         Color startColor = new Color(1, 1, 1, 0);
         Color endColor = new Color(1, 1, 1, 1);
         float time = 0;
-        SpriteRenderer sr = _boss.GetComponent<SpriteRenderer>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
         while (time < duration)
         {
             time += Time.deltaTime;

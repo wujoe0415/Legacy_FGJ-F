@@ -18,7 +18,6 @@ public class EnemyManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(damage);
         HealthPoint -= damage;
         if (HealthPoint <= 0)
         {

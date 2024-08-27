@@ -18,9 +18,15 @@ public class Attack : BasicSkill
     public override void Skill()
     {
         if (isRight)
+        {
+            RightDamageZone.GetComponent<PlayerAttackCollider>().Damage = Damage;
             RightDamageZone.SetActive(true);
+        }
         else
+        {
+            LeftDamageZone.GetComponent<PlayerAttackCollider>().Damage = Damage;
             LeftDamageZone.SetActive(true);
+        }
         Invoke("DisableSword", SpecialEffectDuration);
     }
     private void DisableSword()

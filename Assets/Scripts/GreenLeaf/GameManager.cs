@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,36 +11,51 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnGameWin;
     public UnityEvent OnGameOver;
     public static GameManager Instance;
+
+    private int round = 0;
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
             Destroy(gameObject);
+        round = 0;
     }
+    public Sprite[] TeachUIs;
     private void Start()
     {
-        OnGameStart?.Invoke();
-        BFManager.InitBattle();
-        BFManager.StartBattle();
+        StartCoroutine(InitBattle());
     }
     public void NextBattle()
     {
         StartCoroutine(LoadBattle());
     }
-    public GameObject Teach;
+    public Image TeachUI;
+    public GameObject LoadUI;
+    private IEnumerator InitBattle()
+    {
+        TeachUI.sprite = TeachUIs[round];
+        TeachUI.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        TeachUI.gameObject.SetActive(false);
 
+        OnGameStart?.Invoke();
+        BFManager.InitBattle();
+        BFManager.StartBattle();
+    }
     private IEnumerator LoadBattle()
     {
-        // TODO: Called Battle UI
+        round++;
         OnGameEnd?.Invoke();
-        while(!Input.GetKeyDown(KeyCode.X))
+        LoadUI.SetActive(true);
+        while (!Input.GetKeyDown(KeyCode.X))
             yield return null;
-        Teach.SetActive(true);
+        LoadUI.SetActive(false);
+        TeachUI.sprite = TeachUIs[round];
+        TeachUI.gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
-        Teach.SetActive(false);
+        TeachUI.gameObject.SetActive(false);
         OnGameStart?.Invoke();
-
         BFManager.StartBattle();
     }
     public void GameOver()

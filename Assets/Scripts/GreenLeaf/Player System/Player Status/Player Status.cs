@@ -18,6 +18,9 @@ public class PlayerStatus : MonoBehaviour
     private int _maxMagicPoint = 5;
     private IEnumerator _coroutine;
     private PlayerUIManager _playerUIManager;
+
+    private Animator _animator;
+
     private void Awake()
     {
         _playerUIManager = Object.FindObjectOfType<PlayerUIManager>();
@@ -33,6 +36,7 @@ public class PlayerStatus : MonoBehaviour
             Destroy(this);
         else
             Instance = this;
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -60,12 +64,14 @@ public class PlayerStatus : MonoBehaviour
     {
         if(isInvincible)
             return;
+        _animator.SetTrigger("Hurt");
         CurrentHP -= amount;
         CurrentHP = Mathf.Clamp(CurrentHP, 0f, _maxHealthPoint);
         _playerUIManager.UpdateDisplayHP(CurrentHP, true);
         if (CurrentHP == 0f)
         {
             _playerUIManager.UpdateDisplayHP(CurrentHP);
+            _animator.SetTrigger("Dead");
             Object.FindObjectOfType<BattleFieldManager>().SwitchPlayer(gameObject);
             Destroy(gameObject);
         }

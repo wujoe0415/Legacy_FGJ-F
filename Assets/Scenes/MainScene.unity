@@ -916,9 +916,9 @@ MonoBehaviour:
   Players:
   - {fileID: 2566389402002922271, guid: 18cea75c9c3747240b20740d01127914, type: 3}
   - {fileID: 2566389402002922271, guid: 4f1044dbd0661974ea8c06b232edadc2, type: 3}
-  - {fileID: 2566389402002922271, guid: 443e8f42c77e10545ac5e6fcdf38125a, type: 3}
-  - {fileID: 2566389402002922271, guid: b4d31a4be55ebee46bad31dc0887d337, type: 3}
   - {fileID: 2566389402002922271, guid: c343ae71f0c66414690f1d035f83f311, type: 3}
+  - {fileID: 2566389402002922271, guid: b4d31a4be55ebee46bad31dc0887d337, type: 3}
+  - {fileID: 2566389402002922271, guid: 443e8f42c77e10545ac5e6fcdf38125a, type: 3}
   PlayerSpawnPoint: {fileID: 800809062}
   Enemy: {fileID: 1508058629}
   EnemySpawnPoint: {fileID: 1378565795}

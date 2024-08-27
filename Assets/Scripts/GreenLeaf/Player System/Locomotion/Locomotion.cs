@@ -13,14 +13,19 @@ public class Locomotion : MonoBehaviour
     private SpriteRenderer _sprite;
     public LayerMask Ground;
 
+    private Animator _animator;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && CheckGrounded())
+        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            _animator.SetBool("Move", false);
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && CheckGrounded())
             Jump();
         else if(Input.GetKey(KeyCode.A))
             Move(false);
@@ -35,6 +40,7 @@ public class Locomotion : MonoBehaviour
     private void Move(bool isRight)
     {
         int direction = isRight? 1:-1;
+        _animator.SetBool("Move", true);
         _sprite.flipX = !isRight; // Character faces right initially
         transform.position += direction * Vector3.right * Speed * Time.deltaTime;
     }
